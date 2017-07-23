@@ -1,23 +1,31 @@
 package me.inventor02.intrachat;
 
-import me.inventor02.intrachat.commands.CommandAbout;
 import me.inventor02.intrachat.commands.CommandManager;
+import me.inventor02.intrachat.metrics.Metrics;
 import org.bukkit.plugin.java.JavaPlugin;
+
+import java.io.IOException;
 
 public class IntraChat extends JavaPlugin {
     private static IntraChat instance;
 
     @Override
     public void onEnable() {
-        // TODO: Messages
         instance = this;
 
         CommandManager.registerCommands();
+
+        try {
+            Metrics metrics = new Metrics(this);
+            metrics.start();
+        } catch(IOException e) {
+            getLogger().warning("Metrics failed to start. No statistics will be sent :(");
+        }
     }
 
     @Override
     public void onDisable() {
-        // TODO: Messages
+        //
     }
 
     public static IntraChat getInstance() {

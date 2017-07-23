@@ -140,7 +140,7 @@ public abstract class AbstractCommand {
             return;
         }
         
-        if (! sender.hasPermission(permission())) {
+        if ((! sender.hasPermission(permission()) && (! permission().equals("")))) {
             sender.sendMessage(permissionMessage());
             return;
         }
