@@ -125,5 +125,9 @@ public class Sender implements CommandSender {
     public void sendMessage(String... messages) {
         sender.sendMessage(messages);
     }
-    
+
+    @Override
+    public Spigot spigot() {
+        return sender.spigot();
+    }
 }

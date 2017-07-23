@@ -1,0 +1,5 @@
+name: IntraChat
+main: me.inventor02.intrachat.IntraChat
+version: 1.0-SNAPSHOT
+author: inventor02
+description: Chat channels and more for Spigot servers
