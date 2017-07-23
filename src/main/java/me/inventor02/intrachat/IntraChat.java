@@ -1,5 +1,7 @@
 package me.inventor02.intrachat;
 
+import me.inventor02.intrachat.commands.CommandAbout;
+import me.inventor02.intrachat.commands.CommandManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class IntraChat extends JavaPlugin {
@@ -9,6 +11,8 @@ public class IntraChat extends JavaPlugin {
     public void onEnable() {
         // TODO: Messages
         instance = this;
+
+        CommandManager.registerCommands();
     }
 
     @Override
