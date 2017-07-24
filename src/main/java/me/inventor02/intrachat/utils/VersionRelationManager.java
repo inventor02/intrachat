@@ -3,6 +3,7 @@ package me.inventor02.intrachat.utils;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonPrimitive;
 import me.inventor02.intrachat.IntraChat;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -43,15 +44,15 @@ public class VersionRelationManager {
             return "";
         }
 
-        final JsonObject jMessage = jMessages.getAsJsonObject(IntraChat.INTERNAL_VERSION + "");
+        final JsonPrimitive jMessage = jMessages.getAsJsonPrimitive(IntraChat.INTERNAL_VERSION + "");
         return jMessage.toString();
     }
 
     public static boolean hasUpdatesAvailable() {
         final JsonObject json = getJSON();
 
-        final JsonArray jVersions = json.getAsJsonArray(IntraChat.INTERNAL_VERSION + "");
+        final JsonPrimitive jLatestVersion = json.getAsJsonPrimitive("latestVersion");
 
-        return jVersions.get(0).getAsInt() > IntraChat.INTERNAL_VERSION;
+        return jLatestVersion.getAsInt() > IntraChat.INTERNAL_VERSION;
     }
 }
