@@ -9,6 +9,8 @@ import java.io.IOException;
 public class IntraChat extends JavaPlugin {
     private static IntraChat instance;
 
+    public static final int INTERNAL_VERSION = 1;
+
     @Override
     public void onEnable() {
         instance = this;
